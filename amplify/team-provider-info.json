@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-chefskiss-dev-c2c79-authRole",
+      "UnauthRoleArn": "arn:aws:iam::026090517106:role/amplify-chefskiss-dev-c2c79-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::026090517106:role/amplify-chefskiss-dev-c2c79-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-chefskiss-dev-c2c79-deployment",
+      "UnauthRoleName": "amplify-chefskiss-dev-c2c79-unauthRole",
+      "StackName": "amplify-chefskiss-dev-c2c79",
+      "StackId": "arn:aws:cloudformation:eu-north-1:026090517106:stack/amplify-chefskiss-dev-c2c79/9ebdbde0-572b-11ef-8b77-06c94d418539",
+      "AmplifyAppId": "d2fn15iyi01nf8"
+    },
+    "categories": {
+      "auth": {
+        "chefskiss9ae43a5b": {}
+      }
+    }
+  }
+}

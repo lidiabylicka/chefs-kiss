@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Logo from "@/public/svg/Logo";
 import Navbar from "./Navbar";
+import Navlink from "./components/Navlink";
 
 type LoggedOutProps = {
   children: React.ReactNode;
@@ -10,9 +10,11 @@ const LoggedOut: React.FC<LoggedOutProps> = ({ children }) => {
   return (
     <div className="w-full h-full gap-20 flex-col flex">
       <Navbar>
-        <div>Left hand side</div>
-        <div></div>
-        <div>Right Links</div>
+        <div className="flex flex-col">
+          <Navlink href="/register">register</Navlink>
+          <Navlink href="/login">login</Navlink>
+          <Navlink href="/projects">projects</Navlink>
+        </div>
       </Navbar>
       <div className="flex h-full flex-col p-12">
         <div>{children}</div>

@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { Amplify } from "aws-amplify";
 
 import clsx from "clsx";
 
 import Logo from "@/public/svg/Logo";
 import AppContext from "@/context/AppContext";
+import awsConfig from "@/amplifyconfiguration.json";
 
 const josefin_sans = Josefin_Sans({
   subsets: ["latin"],
@@ -17,6 +19,8 @@ export const metadata: Metadata = {
   title: "Chefs Kiss",
   description: "Your fridge manager",
 };
+
+Amplify.configure(awsConfig);
 
 export default function RootLayout({
   children,

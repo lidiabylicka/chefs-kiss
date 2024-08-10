@@ -32,6 +32,12 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  variants: {
+    extend: {
+      before: ["hover", "focus"],
+      after: ["hover", "focus"],
+    },
+  },
+  plugins: [require("tailwindcss-pseudo-elements")],
 };
 export default config;
