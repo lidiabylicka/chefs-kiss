@@ -6,6 +6,7 @@ import Link from "next/link";
 import clsx from "clsx";
 
 import Logo from "@/public/svg/Logo";
+import AppContext from "@/context/AppContext";
 
 const josefin_sans = Josefin_Sans({
   subsets: ["latin"],
@@ -30,7 +31,9 @@ export default function RootLayout({
             <Link href="/" className="fixed top-0">
               <Logo />
             </Link>
-            <div className="top-20 h-full w-full max-w-full">{children}</div>
+            <div className="top-20 h-full w-full max-w-full">
+              <AppContext>{children}</AppContext>
+            </div>
           </div>
         </div>
       </body>

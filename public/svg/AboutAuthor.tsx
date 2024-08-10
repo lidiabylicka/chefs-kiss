@@ -1,16 +1,30 @@
-const AboutAuthor = () => {
+"use client";
+
+import { useState } from "react";
+
+const AboutAuthor = ({
+  fillColor = "#000000",
+  hoverColor = "#FF0000",
+  width = "w-[433px]",
+  height = "h-[368px]",
+}) => {
+  const [currentFillColor, setCurrentFillColor] = useState(fillColor);
+
   return (
     <svg
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
-      width="445.000000pt"
-      height="357.000000pt"
+      // width="445.000000pt"
+      // height="357.000000pt"
       viewBox="0 0 545.000000 457.000000"
       preserveAspectRatio="xMidYMid meet"
+      className={`${width} ${height}`}
+      onMouseEnter={() => setCurrentFillColor(hoverColor)}
+      onMouseLeave={() => setCurrentFillColor(fillColor)}
     >
       <g
         transform="translate(0.000000,457.000000) scale(0.100000,-0.100000)"
-        fill="#000000"
+        fill={currentFillColor}
         stroke="none"
       >
         <path
