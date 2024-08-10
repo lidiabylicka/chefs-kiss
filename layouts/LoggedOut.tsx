@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Logo from "@/public/svg/Logo";
 import Navbar from "./Navbar";
 
@@ -13,8 +14,11 @@ const LoggedOut: React.FC<LoggedOutProps> = ({ children }) => {
         <div></div>
         <div>Right Links</div>
       </Navbar>
-      <div className="flex flex-col p-12">
-        <p>{children}</p>
+      <div className="flex h-full flex-col p-12">
+        <div>{children}</div>
+      </div>
+      <div className="text-white underline hover:scale-95 transition-all">
+        Created by: <Link href="https://github.com/lidiabylicka">Lidia</Link>
       </div>
     </div>
   );

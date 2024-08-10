@@ -9,6 +9,12 @@ const config: Config = {
     "./public/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xs: { max: "540px" },
+      sm: { max: "980px" },
+      standard: { max: "1366px" },
+      xl: "1367px",
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -19,6 +25,7 @@ const config: Config = {
         aqua: "#097969",
         yellow: "#E4D00A",
         pink: "#dbbebb",
+        grey: "#f5f5f5",
       },
       boxShadow: {
         "purple-shadow": "8px 2px 4px rgba(9, 121, 105, 0.3)",

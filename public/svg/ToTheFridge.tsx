@@ -1,16 +1,30 @@
-const ToTheFridge = () => {
+"use client";
+
+import { useState } from "react";
+
+const ToTheFridge = ({
+  fillColor = "#000000",
+  hoverColor = "",
+  width = "w-48",
+  height = "h-48",
+}) => {
+  const [currentFillColor, setCurrentFillColor] = useState(fillColor);
+
   return (
     <svg
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
-      width="433.000000pt"
-      height="368.000000pt"
+      // width="433.000000pt"
+      // height="368.000000pt"
       viewBox="0 0 533.000000 468.000000"
       preserveAspectRatio="xMidYMid meet"
+      className={`${width} ${height}`}
+      onMouseEnter={() => setCurrentFillColor(hoverColor)}
+      onMouseLeave={() => setCurrentFillColor(fillColor)}
     >
       <g
         transform="translate(0.000000,468.000000) scale(0.100000,-0.100000)"
-        fill="#000000"
+        fill={currentFillColor}
         stroke="none"
       >
         <path
