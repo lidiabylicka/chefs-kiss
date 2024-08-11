@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { Amplify } from "aws-amplify";
 
 import clsx from "clsx";
 
@@ -18,6 +17,7 @@ export const metadata: Metadata = {
   title: "Chefs Kiss",
   description: "Your fridge manager",
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
