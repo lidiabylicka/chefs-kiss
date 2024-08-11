@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Auth } from "aws-amplify";
+import { signUp } from "aws-amplify/auth";
+import awsConfig from "@/utils/awsConfig";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
@@ -12,12 +13,9 @@ const RegisterPage = () => {
     e.preventDefault();
     try {
       // Register the user using Amplify Auth
-      const { user } = await Auth.signUp({
+      const user = await signUp({
         username,
         password,
-        attributes: {
-          email, // default is empty string
-        },
       });
       console.log("User registered successfully:", user);
       // Optionally redirect or show a success message
@@ -28,7 +26,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="register-form">
+    <div className="text-aqua">
       <h2>Register</h2>
       <form onSubmit={handleRegister}>
         <input

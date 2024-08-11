@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 import Logo from "@/public/svg/Logo";
 import AppContext from "@/context/AppContext";
-import awsConfig from "@/amplifyconfiguration.json";
+import awsConfig from "@/utils/awsConfig";
 
 const josefin_sans = Josefin_Sans({
   subsets: ["latin"],
