@@ -8,7 +8,6 @@ import clsx from "clsx";
 
 import Logo from "@/public/svg/Logo";
 import AppContext from "@/context/AppContext";
-import awsConfig from "@/utils/awsConfig";
 
 const josefin_sans = Josefin_Sans({
   subsets: ["latin"],
@@ -19,9 +18,6 @@ export const metadata: Metadata = {
   title: "Chefs Kiss",
   description: "Your fridge manager",
 };
-
-Amplify.configure(awsConfig);
-
 export default function RootLayout({
   children,
 }: Readonly<{
