@@ -1,7 +1,3 @@
-import { signOut } from "aws-amplify/auth";
-import { withAuthenticator } from "@aws-amplify/ui-react";
-import awsConfig from "@/utils/awsConfig";
-
 import Navbar from "./Navbar";
 
 type LoggedInProps = {
@@ -23,4 +19,4 @@ const LoggedIn: React.FC<LoggedInProps> = ({ children }) => {
   );
 };
 
-export default withAuthenticator(LoggedIn);
+export default LoggedIn;
