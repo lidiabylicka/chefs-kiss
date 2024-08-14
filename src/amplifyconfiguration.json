@@ -4,7 +4,17 @@
   "aws_cognito_region": "eu-north-1",
   "aws_user_pools_id": "eu-north-1_HCigkAVGl",
   "aws_user_pools_web_client_id": "4jrdmma4lppn2sb2fm8bg47b2m",
-  "oauth": {},
+  "oauth": {
+    "domain": "chefskissb0d83a51-b0d83a51-dev.auth.eu-north-1.amazoncognito.com",
+    "scope": [
+      "email",
+      "openid"
+    ],
+    "redirectSignIn": "http://localhost:3000/",
+    "redirectSignOut": "http://localhost:300/",
+    "responseType": "code"
+  },
+  "federationTarget": "COGNITO_USER_POOLS",
   "aws_cognito_username_attributes": [
     "EMAIL"
   ],
@@ -22,5 +32,12 @@
   },
   "aws_cognito_verification_mechanisms": [
     "EMAIL"
+  ],
+  "aws_cloud_logic_custom": [
+    {
+      "name": "ChefsKissApi",
+      "endpoint": "https://f70lrh9nt9.execute-api.eu-north-1.amazonaws.com/dev",
+      "region": "eu-north-1"
+    }
   ]
 }

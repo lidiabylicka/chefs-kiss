@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/items/{isbn}": {
+      "name": "/items/{isbn}",
+      "lambdaFunction": "LambdaFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
