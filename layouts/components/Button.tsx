@@ -5,7 +5,10 @@ type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
   return (
-    <button className="bg-pink border border-yellow pt-2 pb-1 px-2 rounded-lg text-aqua">
+    <button
+      onClick={onClick}
+      className="bg-pink border border-yellow pt-2 pb-1 px-2 rounded-lg text-aqua"
+    >
       <div
         className="
             relative h-7 hover:text-white
