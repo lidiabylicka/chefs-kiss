@@ -13,7 +13,7 @@ export default function Home() {
           height="h-96 sm:h-72"
         />
       </Link>
-      <Link href="/landing" className="hover:scale-95 transition-all">
+      <Link href="/fridge" className="hover:scale-95 transition-all">
         <ToTheFridge
           hoverColor="grey"
           width="w-96 sm:w-72"
