@@ -3,8 +3,8 @@ const Logo = () => {
     <svg
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
-      width="400" // Set the maximum width to 700 pixels
-      height="150" // Set the maximum height to 350 pixels
+      width="400"
+      height="150"
       viewBox="0 0 2385 2150"
       preserveAspectRatio="xMidYMid meet"
     >

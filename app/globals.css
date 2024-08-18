@@ -2,6 +2,18 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "@aws-amplify/ui-react/styles.css";
+
 body {
   color: whitesmoke;
+}
+.amplify-label {
+  color: whitesmoke;
+}
+.amplify-button--primary {
+  background: linear-gradient(
+    to right,
+    var(--amplify-colors-green-80),
+    var(--amplify-colors-orange-40)
+  );
 }

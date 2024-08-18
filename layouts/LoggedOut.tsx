@@ -11,9 +11,9 @@ const LoggedOut: React.FC<LoggedOutProps> = ({ children }) => {
     <div className="w-full h-full gap-20 flex-col flex">
       <Navbar>
         <div className="flex flex-col">
-          <Navlink href="/register">register</Navlink>
-          <Navlink href="/login">login</Navlink>
-          <Navlink href="/projects">projects</Navlink>
+          <Navlink href="/fridge">REGISTER / LOG IN</Navlink>
+          <Navlink href="/projects">SEE OTHER PROJECTS</Navlink>
+          <Navlink href="/about">ABOUT THE AUTHOR</Navlink>
         </div>
       </Navbar>
       <div className="flex h-full flex-col p-12">
