@@ -1,4 +1,6 @@
 "use client";
+
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -26,7 +28,7 @@ import awsConfig from "@/aws-exports";
 import { theme } from "./components/awsTheme";
 import Button from "./components/Button";
 import Header from "./components/Header";
-import Navlink from "./components/Navlink";
+import ProfileIcon from "@/public/svg/Profile";
 
 type LoggedInProps = {
   children: React.ReactNode;
@@ -35,6 +37,7 @@ type LoggedInProps = {
 Amplify.configure(awsConfig);
 
 const LoggedIn: React.FC<LoggedInProps> = ({ children }) => {
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
   const router = useRouter();
 
   const components = {
@@ -77,6 +80,10 @@ const LoggedIn: React.FC<LoggedInProps> = ({ children }) => {
     },
   };
 
+  const handleShowMenu = () => {
+    setShowProfileMenu(!showProfileMenu);
+  };
+
   return (
     <div className="w-full h-full gap-20 flex-col justify-center flex">
       <ThemeProvider theme={theme}>
@@ -85,19 +92,39 @@ const LoggedIn: React.FC<LoggedInProps> = ({ children }) => {
             const displayName = (user as AuthUser)?.signInDetails?.loginId;
             return (
               <div className="sm:mx-2">
-                <div className="fixed top-4 left-4">
-                  <div className="pl-1  sm:hidden">
-                    Signed in as:{" "}
-                    <Navlink href="/profile">{displayName}</Navlink>
-                  </div>
-                  <Button
-                    onClick={() => {
-                      signOut?.();
-                      router.push("/landing"); // Redirect to /landing after signing out
-                    }}
+                <div className="fixed flex flex-row top-4 left-4">
+                  <button className="fixed" onMouseEnter={handleShowMenu}>
+                    <ProfileIcon />
+                  </button>
+
+                  <div
+                    className={`fixed transition-opacity duration-300 ease-in-out left-20 border rounded-xl flex flex-col gap-1 items-center border-white p-2 ml-1 sm:bg-yellow sm:w-2/3 ${
+                      showProfileMenu
+                        ? "opacity-100"
+                        : "opacity-0 pointer-events-none"
+                    }`}
                   >
-                    Sign out
-                  </Button>
+                    <Link className="w-full" href="/profile">
+                      <Button>{displayName} </Button>
+                    </Link>
+
+                    <Link className="w-full" href="/my-recipes">
+                      <Button>my recipes</Button>
+                    </Link>
+
+                    <Link className="w-full" href="/about">
+                      <Button>about</Button>
+                    </Link>
+
+                    <Button
+                      onClick={() => {
+                        signOut?.();
+                        router.push("/landing");
+                      }}
+                    >
+                      sign out
+                    </Button>
+                  </div>
                 </div>
                 <div className="flex flex-col p-12 sm:mx-2">
                   <div>{children}</div>

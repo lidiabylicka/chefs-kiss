@@ -16,6 +16,9 @@ const josefin_sans = Josefin_Sans({
 export const metadata: Metadata = {
   title: "Chefs Kiss",
   description: "Your fridge manager",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -40,5 +43,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-// background for dark mode: <div class="relative h-full w-full bg-slate-950"><div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div></div>

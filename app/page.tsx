@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import Logo from "@/public/svg/Logo";
 import ToTheFridge from "@/public/svg/ToTheFridge";
 import AboutAuthor from "@/public/svg/AboutAuthor";
 
