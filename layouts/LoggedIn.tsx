@@ -43,11 +43,7 @@ const LoggedIn: React.FC<LoggedInProps> = ({ children }) => {
   const components = {
     SignIn: {
       Header() {
-        return (
-          <Heading padding="0 20 0 20">
-            <Header>To continue, sign in or create a new account</Header>
-          </Heading>
-        );
+        return <Header>to continue, sign in or create a new account</Header>;
       },
       Footer() {
         const { toForgotPassword } = useAuthenticator();
@@ -55,9 +51,9 @@ const LoggedIn: React.FC<LoggedInProps> = ({ children }) => {
         return (
           <View textAlign="center">
             <div className="flex gap-2 w-full justify-between font-semibold">
-              <Button onClick={toForgotPassword}>Reset Password</Button>
+              <Button onClick={toForgotPassword}>reset password</Button>
               <Button onClick={() => router.push("/")}>
-                Back to main page
+                back to main page
               </Button>
             </div>
           </View>
@@ -72,7 +68,7 @@ const LoggedIn: React.FC<LoggedInProps> = ({ children }) => {
         return (
           <View textAlign="center">
             <div className="font-semibold">
-              <Button onClick={toSignIn}>Back to Sign In</Button>
+              <Button onClick={toSignIn}>back to sign in</Button>
             </div>
           </View>
         );
@@ -106,6 +102,10 @@ const LoggedIn: React.FC<LoggedInProps> = ({ children }) => {
                   >
                     <Link className="w-full" href="/profile">
                       <Button>{displayName} </Button>
+                    </Link>
+
+                    <Link className="w-full" href="/fridge">
+                      <Button>my fridge</Button>
                     </Link>
 
                     <Link className="w-full" href="/my-recipes">

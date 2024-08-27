@@ -1,13 +1,14 @@
 type ButtonProps = {
   children: React.ReactNode;
   onClick?: () => void;
+  type?: "submit" | "reset" | "button";
 };
 
 const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="bg-pink w-full border hover:border-white border-yellow pt-2 pb-1 px-2 sm:h-12 sm:flex sm:align-middle sm:justify-center rounded-lg text-aqua"
+      className="bg-pink w-full max-h-max border hover:border-white border-yellow pt-2 pb-1 px-2 sm:h-12 sm:flex sm:align-middle sm:justify-center rounded-lg text-aqua"
     >
       <div
         className="

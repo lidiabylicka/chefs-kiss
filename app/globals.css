@@ -13,13 +13,13 @@
   color: whitesmoke;
 }
 
-.amplify-button--primary {
+/* .amplify-button--primary {
   background: linear-gradient(
     to right,
     var(--amplify-colors-pink-80),
     var(--amplify-colors-yellow-40)
   );
-}
+} */
 
 .amplify-tabs__item--active {
   color: var(--amplify-colors-teal-90);
