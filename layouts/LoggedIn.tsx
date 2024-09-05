@@ -108,7 +108,7 @@ const LoggedIn: React.FC<LoggedInProps> = ({ children }) => {
                       <Button>my fridge</Button>
                     </Link>
 
-                    <Link className="w-full" href="/my-recipes">
+                    <Link className="w-full" href="/">
                       <Button>my recipes</Button>
                     </Link>
 

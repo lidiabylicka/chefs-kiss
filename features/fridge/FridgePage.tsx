@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 
 import Button from "@/layouts/components/Button";
+import Store from "@/features/fridge/shop/Store";
 
 const FridgePage = () => {
   const [foodItem, setFoodItem] = useState("");
@@ -22,11 +23,11 @@ const FridgePage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ foodItems: foodItem.split(","), userId }),
+        body: JSON.stringify({ foodItems: foodItem, userId }),
       });
 
       const result = await response.json();
-
+      console.log(result, "result");
       if (response.ok) {
         console.log("Food items have been stored successfully:", result.items);
       } else {
@@ -57,7 +58,7 @@ const FridgePage = () => {
         </div>
         {/* Second column: Fridge contents */}
         <div className="flex flex-1 w-full pl-1 justify-center text-white">
-          <h2>FRIDGE CONTENTS TO DISPLAY HERE</h2>
+          <Store />
         </div>
       </div>
     </div>
