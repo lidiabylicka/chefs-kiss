@@ -3,8 +3,13 @@
 import { useState } from "react";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 
+import { ProductBrowser } from "@ecwid/nextjs-ecwid-plugin";
+{
+  /* <ProductBrowser storeId="108134812" /> */
+}
+
 import Button from "@/layouts/components/Button";
-import Store from "@/features/fridge/shop/Store";
+import FridgeContents from "./components/FridgeContents";
 
 const FridgePage = () => {
   const [foodItem, setFoodItem] = useState("");
@@ -14,8 +19,11 @@ const FridgePage = () => {
     process.env.API_GATEWAY ||
     "https://f70lrh9nt9.execute-api.eu-north-1.amazonaws.com/dev";
 
+  //trying out the new code
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    console.log("User ID:", userId); // Log userId
+    console.log("Food Item:", foodItem); // Log foodItem
 
     try {
       const response = await fetch(API_GATEWAY_ENDPOINT, {
@@ -26,10 +34,12 @@ const FridgePage = () => {
         body: JSON.stringify({ foodItems: foodItem, userId }),
       });
 
-      const result = await response.json();
-      console.log(result, "result");
+      const result = await response.json(); // Parse response
+
+      console.log("Full Response:", result); // Log the entire response object for debugging
+
       if (response.ok) {
-        console.log("Food items have been stored successfully:", result.items);
+        console.log("Food items have been stored successfully:", result.items); // Access result.items properly
       } else {
         console.error("Error:", result.error);
       }
@@ -44,21 +54,19 @@ const FridgePage = () => {
       <div className="flex w-full max-w-4xl justify-between p-4">
         {/* First column: Form */}
         <div className="flex-1 w-full pr-1">
-          <form className="w-full flex flex-col gap-2">
+          <form className="w-full flex flex-col gap-2" onSubmit={handleSubmit}>
             <input
               type="text"
               onChange={(e) => setFoodItem(e.target.value)}
               placeholder="insert ingredients to add, divided by comma..."
               className="w-full p-2 bg-transparent rounded-lg border-white text-aqua focus:border-yellow"
             />
-            <Button type="submit" onClick={() => handleSubmit}>
-              add products
-            </Button>
+            <Button type="submit">add products</Button>
           </form>
         </div>
         {/* Second column: Fridge contents */}
         <div className="flex flex-1 w-full pl-1 justify-center text-white">
-          <Store />
+          {/* <FridgeContents /> */}
         </div>
       </div>
     </div>
@@ -66,36 +74,3 @@ const FridgePage = () => {
 };
 
 export default FridgePage;
-
-// exports.handler = async (event) => {
-//   try {
-//     // Parse the event body, ensuring it is handled correctly
-//     const body =
-//       typeof event.body === "string" ? JSON.parse(event.body) : event.body;
-
-//     // Check if foodItems is defined in the body
-//     if (!body || !body.foodItems) {
-//       throw new Error("Missing 'foodItems' in request body");
-//     }
-
-//     // Split the foodItems string into an array
-//     const foodItems = body.foodItems.split(",");
-
-//     // Return a successful response
-//     return {
-//       statusCode: 200,
-//       body: JSON.stringify({
-//         message: "Food items have been stored successfully",
-//         items: foodItems,
-//       }),
-//     };
-//   } catch (error) {
-//     // Return an error response
-//     return {
-//       statusCode: 400, // or 500, depending on the nature of the error
-//       body: JSON.stringify({
-//         error: error.message,
-//       }),
-//     };
-//   }
-// };
